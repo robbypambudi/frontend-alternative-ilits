@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Hind&display=swap');
 :root {
   /* #region  /**=========== Primary Color =========== */
-  /* !STARTERCONF Customize these variable, copy and paste from /styles/colors.css for list of colors */
   --tw-color-primary-50: 240 249 255;
   --tw-color-primary-100: 224 242 254;
   --tw-color-primary-200: 186 230 253;
@@ -115,4 +115,17 @@
   .animated-underline:focus-visible {
     background-size: 0 2px, 100% 2px;
   }
+}
+
+/* Custom Background Color */
+.cs-bg-primary {
+  background: linear-gradient(
+    180.14deg,
+    #f2f2f2 -8.22%,
+    #f3a3a6 43.36%,
+    #60bee0 94.29%
+  );
+}
+.cs-bg-button {
+  background: linear-gradient(270deg, #60bee0 0%, #3b71c7 100%);
 }

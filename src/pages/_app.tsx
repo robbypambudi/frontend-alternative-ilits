@@ -1,4 +1,6 @@
+import axios from 'axios';
 import { AppProps } from 'next/app';
+import { SWRConfig } from 'swr';
 
 import '@/styles/globals.css';
 
@@ -8,7 +10,25 @@ import '@/styles/globals.css';
  */
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  axios.defaults.baseURL = 'https://inilhoits.com:8081';
+
+  return (
+    <SWRConfig
+      value={{
+        fetcher: (url) =>
+          axios
+            .get(url, {
+              headers: {
+                origin: 'https://inilhoits.com',
+                Referer: 'https://inilhoits.com/',
+              },
+            })
+            .then((res) => res.data),
+      }}
+    >
+      <Component {...pageProps} />
+    </SWRConfig>
+  );
 }
 
 export default MyApp;
